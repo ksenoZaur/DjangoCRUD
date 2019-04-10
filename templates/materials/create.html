@@ -1,0 +1,70 @@
+{% extends "materials/product.html" %}
+{% load staticfiles %}
+{% block content%}
+
+    <div id="content-wrapper" class="myColorElem mx-auto" xmlns="http://www.w3.org/1999/html">
+
+        <div class="row">
+            <span class="lg-col-12 sm-col-4 h1 ml-4">Новый материал</span>
+        </div>
+
+        <div class="row bg-white p-2">
+
+{#            <div class="d-inline col-md-4 col-sm-12">#}
+{##}
+{#                <img src="{% static material.img %}" class="img-fluid">#}
+{##}
+{#            </div>#}
+
+            <div class="d-inline col-md-8 col-sm-12  mx-auto ">
+                <div class="row-centered">
+                    <div class="sm-col-12 lg-col-8 mx-auto">
+                        <input type="checkbox" checked id="hd-1" class="hide"/>
+                        <label for="hd-1" class="h3">Характеристики</label>
+                        <div class="row">
+
+                            <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Название</label>
+                            <div class="col-sm-12">
+                                <input class="form-control form-control-sm" id="title">
+                            </div>
+
+                            <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Адрес изображения</label>
+                            <div class="col-sm-12">
+                                <input class="form-control form-control-sm" id="address">
+                            </div>
+
+                            <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Код товара</label>
+                            <div class="col-sm-12">
+                                <input class="form-control form-control-sm" id="code">
+                            </div>
+
+                            <label for="colFormLabelSm" class="col-sm-5 col-form-label col-form-label-sm">Количество на складе</label>
+                            <div class="col-sm-12">
+                                <input class="form-control form-control-sm" id="balance">
+                            </div>
+
+                        </div>
+                        <br/>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+        <div class="row">
+            <div class="mx-auto">
+                <a class="btn btn-dark" href="/materials">Назад</a>
+                <input type="submit" class="btn btn-success my-2" onclick="create_material()" name="name" value="Создать" />
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ block.super  }}
+     <script type="text/javascript" src="{% static 'materials/js/editButton/product.js' %}"></script>
+{% endblock %}

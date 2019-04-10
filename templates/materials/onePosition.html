@@ -1,0 +1,60 @@
+{% load staticfiles  %}
+{% block productInList %}
+    <!--очередной материал-->
+    <div id="{{ one_material.id }}" class="row mt-3 mx-1">
+        <div class="row d-block d-lg-none ml-2">
+            <p class="myTextFont h5"> {{ one_material.title }}   </p>
+        </div>
+        <!--image-->
+        <div class="col-lg-1 order-lg-0  col-12 order-0 bg-white">
+{#            {{ asset("product/#{currentMaterial.id}" ) }} #}
+            <a href="" class="myHref">
+{#                <img src="{{ asset(currentMaterial.image) }}" class="img-fluid">#}
+                <img src="{% static one_material.img %}" class="img-fluid">
+                <link rel="stylesheet" href="{% static 'materials/css/myStyle.css' %}">
+            </a>
+        </div>
+
+        <!--articul-->
+        <div class="col-lg-1 order-lg-1  order-2 d-none d-lg-block">
+            <div class="row" >
+                <div class=" ml-auto mr-auto my-2" >
+                    <p class="myTextColorSpecification myTextFont myTextSizeSpecification"> {{ one_material.code }}</p>
+                </div>
+            </div>
+            <div class="row">
+            </div>
+        </div>
+
+        <!--name&specification-->
+        <div class="col-lg-7 order-lg-2  order-3">
+            <div class="row d-none d-lg-block">
+                <p class="myTextFont h5">
+{#                    {{ asset("product/#{currentMaterial.id}" ) }}#}
+                    <p class="myTextFont h5"> {{ currentMaterial.title }}   </p>
+{#                    <a href="" class="myHref"> {{ currentMaterial.title }}  </a>#}
+                </p>
+            </div>
+            <div class="row">
+                <p class="myTextFont myTextColorSpecification myTextSizeSpecification">  Код материала: {{ one_material.code_material }}  </p>
+            </div>
+        </div>
+
+        <!--price-->
+        <div class="col-lg-3 order-lg-3 col-12 order-1 mb-2" >
+{#            d-lg-block#}
+            <div class="col-lg-12 mx-auto col-4 d-inline d-lg-block">  Наличие: {{ one_material.balance }}шт  </div>
+            <div class="col-lg-12 mx-auto col-8 d-inline my-2 d-lg-block">
+                <a href="/materials/{{ one_material.pk }}" class="btn btn-outline-warning fas fa-edit">Edit</a>
+                <input type="submit" class="btn btn-danger my-2" onclick="deleteMaterial( {{ one_material.pk }})" name="name" value="Del" />
+{#                <a href="" class="btn btn-outline-danger fas fa-edit">Del</a>#}
+            </div>
+        </div>
+    </div>
+    <div id="{{ one_material.id }}" class="dropdown-divider"></div>
+{% endblock %}
+
+{#{% block javascripts %}#}
+{#    {{ block.super  }}#}
+     <script type="text/javascript" src="{% static 'materials/js/editButton/product.js' %}"></script>
+{#{% endblock %}#}
